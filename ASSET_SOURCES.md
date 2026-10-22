@@ -102,3 +102,35 @@ https://1drv.ms/v/c/d3cb7d8ff1af81cf/IQDkBnQF7jEYTLk7RF-ifKd-ARReO1qJkuZ52GEaYzA
 用户补充《妻子的浪漫旅行5》海报，页尾包含豆本豆植物酸奶、SEVEN NIGHTS及雪天标识。同版标识也出现在《妻子的浪漫旅行》&纽瑞滋-项目结案.pdf第30页。页面使用该PDF内原始截图（xref 343，1918×920）中尺寸更大的同版标识。
 
 以SVG视窗指定原始截图的展示区域，截图JPEG字节直接内嵌，没有重绘字形、图形、配色或扩充像素。三个视窗分别为：豆本豆（1042,348,131,92）、SEVEN NIGHTS（1180,346,118,101）、雪天（934,702,82,108）。品牌名称继续使用用户指定的“豆本豆”“雪天盐”“sevennights”。
+
+## 游戏与电竞标识
+
+21款游戏的名称、时长、段位、全成就信息、Steam库存200+、主播关注与两次线下观赛记录，来自用户本次提供的信息。没有汇总为未经确认的总游玩时长，也没有为2026 EWC补写用户未提供的城市或场馆。
+
+游戏标识保存于`assets/game-logos/`，使用站内相对路径及懒加载，不依赖访客访问第三方图片站。独立标识直接保存原始字节；主视觉中的标题标识使用SVG视窗展示原始图片对应区域，没有重绘或改写字形。
+
+| 游戏 | 本地素材 | 公开图源 | 素材形式 |
+| --- | --- | --- | --- |
+| CS系列 | `assets/game-logos/cs.svg` | https://upload.wikimedia.org/wikipedia/commons/b/b8/Counter-Strike_2_logo.svg | 原始标识文件 |
+| 守望先锋 | `assets/game-logos/overwatch.svg` | https://upload.wikimedia.org/wikipedia/commons/c/c7/Overwatch_2_logo.svg | 原始标识文件 |
+| 永劫无间 | `assets/game-logos/naraka.svg` | https://upload.wikimedia.org/wikipedia/en/5/57/Naraka_Bladepoint_cover_art_full.jpg | 原主视觉标题区域 |
+| PUBG | `assets/game-logos/pubg.svg` | https://upload.wikimedia.org/wikipedia/en/9/9f/Pubgbattlegrounds.png | 原主视觉标题区域 |
+| Apex英雄 | `assets/game-logos/apex.svg` | https://upload.wikimedia.org/wikipedia/commons/3/3e/Apex_Legends_logo.svg | 原始标识文件 |
+| 彩虹六号：围攻 | `assets/game-logos/siege.svg` | https://upload.wikimedia.org/wikipedia/commons/a/a9/Rainbow_Six_Siege_X_logo.svg | 原始标识文件 |
+| 光环：士官长合集 | `assets/game-logos/halo.svg` | https://upload.wikimedia.org/wikipedia/en/a/a3/Halo_TMCC_KeyArt_Vert_2019.png | 原主视觉标题区域 |
+| 艾尔登法环 | `assets/game-logos/elden.svg` | https://upload.wikimedia.org/wikipedia/commons/c/cd/Elden_Ring_logo_black.svg | 原始标识文件 |
+| 黑暗之魂：重制版 | `assets/game-logos/dark-souls-remastered.svg` | https://upload.wikimedia.org/wikipedia/commons/f/f2/Dark_Souls_logo_black.svg | 原始标识文件 |
+| 黑暗之魂3 | `assets/game-logos/dark-souls-3.jpg` | https://upload.wikimedia.org/wikipedia/commons/c/c5/Dark_Souls_III.jpg | 原始标识文件 |
+| 巫师3：狂猎 | `assets/game-logos/witcher.svg` | https://upload.wikimedia.org/wikipedia/commons/d/da/EN_The-Witcher-3_Logo-Black_RGB.svg | 原始标识文件 |
+| 怪物猎人：世界 | `assets/game-logos/monster-hunter.svg` | https://upload.wikimedia.org/wikipedia/en/1/1b/Monster_Hunter_World_cover_art.jpg | 原主视觉标题区域 |
+| 古剑奇谭3 | `assets/game-logos/gujian.svg` | https://upload.wikimedia.org/wikipedia/en/8/8e/Gujian3_game.jpg | 原主视觉标题区域 |
+| 赛博朋克2077 | `assets/game-logos/cyberpunk.svg` | https://upload.wikimedia.org/wikipedia/commons/e/e6/Cyberpunk_2077_logo.svg | 原始标识文件 |
+| 黑神话：悟空 | `assets/game-logos/wukong.png` | https://upload.wikimedia.org/wikipedia/commons/7/7d/Black_Myth_Wukong_international_black_logo.png | 原始标识文件 |
+| 死亡搁浅：导剪版 | `assets/game-logos/death-stranding.svg` | https://upload.wikimedia.org/wikipedia/commons/0/03/Death_Stranding_2019_vector_logo.svg | 原始标识文件 |
+| 死亡搁浅2：冥滩之上 | `assets/game-logos/death-stranding-2.svg` | https://upload.wikimedia.org/wikipedia/commons/5/5c/Death_Stranding_2_On_the_Beach_2024_vector_logo.svg | 原始标识文件 |
+| 生化危机4：重制版 | `assets/game-logos/resident-evil.svg` | https://upload.wikimedia.org/wikipedia/commons/2/21/Resident_Evil_4_logo_%282023%29.svg | 原始标识文件 |
+| 森林之子 | `assets/game-logos/sons-forest.jpg` | https://upload.wikimedia.org/wikipedia/commons/c/c0/Sons_of_the_Forest_logo.jpg | 原始标识文件 |
+| 帝国时代2：决定版 | `assets/game-logos/aoe.svg` | https://upload.wikimedia.org/wikipedia/commons/0/0d/Logo_Age_of_Empires_II_Definitive_Edition.png | 原主视觉标题区域 |
+| 鹅鸭杀 | `assets/game-logos/goose.svg` | https://upload.wikimedia.org/wikipedia/zh/d/d9/Goose_goose_duck_cover.png | 原主视觉标题区域 |
+
+CS系列使用CS2标识，守望先锋使用现行标识；《黑暗之魂：重制版》使用原作系列字标，版本名称在游戏记录中单独保留。观赛信息显示2024 IEM成都与2026 EWC，主播为CSBOY与玩机器Machine。
