@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="李政 Li Zheng 的作品集，包含综艺品牌内容执行、新闻短片制作、文化活动与湖南卫视制片实习经历。">
   <meta name="theme-color" content="#f5f5f7">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'none'; media-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
   <title>李政 Li Zheng — Content, Culture & Stories</title>
   <style>
     :root{--page:#f5f5f7;--paper:#fff;--ink:#1d1d1f;--muted:#76767c;--lime:#c3f53c;--indigo:#1b1f3b;--line:#e9e9ed;--ease:cubic-bezier(.22,1,.36,1);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
@@ -326,11 +326,12 @@
           <time class="digital-time" id="digital-time">北京时间 · UTC+8</time>
         </div>
       </article>
-      <article class="tile sound-tile" id="sound-tile">
+      <article class="tile sound-tile is-paused" id="sound-tile">
         <div class="tile-content">
-          <div class="sound-top"><span class="eyebrow">Studio rhythm</span><button type="button" class="round-control" id="equalizer-toggle" aria-label="暂停均衡器动画" aria-pressed="false"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h3v10H2zm5 0h3v10H7z"/></svg></button></div>
+          <div class="sound-top"><span class="eyebrow">Studio rhythm</span><button type="button" class="round-control" id="equalizer-toggle" aria-label="播放背景音乐" aria-pressed="false" aria-controls="background-music" aria-describedby="music-status"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1l8 5-8 5z"/></svg></button></div>
           <div class="equalizer" aria-hidden="true"><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i></div>
-          <p class="sound-title">编辑室的节奏</p><p class="sound-caption">Motion study / 编辑室动态视觉</p>
+          <p class="sound-title">编辑室的节奏</p><p class="sound-caption" id="music-status" role="status" aria-live="polite">点击播放 · 循环配乐</p>
+          <audio id="background-music" src="assets/audio/background-music.mp3" preload="none" loop hidden></audio>
         </div>
       </article>
       <article class="tile film-tile" id="film-project">
@@ -397,7 +398,6 @@
       const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
       let manuallyPaused = false;
       let meshPaused = false;
-      let equalizerPaused = false;
       let frameId = 0;
       let previousFrame = 0;
       let sceneTime = 0;
@@ -1097,17 +1097,37 @@
         const button=$('#motion-toggle');button.setAttribute('aria-pressed',String(calm));
         button.textContent=reduced.matches?'已遵循减少动态设置':' '+(manuallyPaused?'播放动态 ▷':'暂停动态 ⏸');
         button.disabled=reduced.matches;
-        $('#sound-tile').classList.toggle('is-paused',equalizerPaused);
-        $('#equalizer-toggle').innerHTML=equalizerPaused?playIcon:pauseIcon;
-        $('#equalizer-toggle').setAttribute('aria-pressed',String(equalizerPaused));
-        $('#equalizer-toggle').setAttribute('aria-label',equalizerPaused?'播放均衡器动画':'暂停均衡器动画');
         $('#mesh-toggle').innerHTML=meshPaused?playIcon:pauseIcon;
         $('#mesh-toggle').setAttribute('aria-pressed',String(meshPaused));
         $('#mesh-toggle').setAttribute('aria-label',meshPaused?'播放渐变网格动画':'暂停渐变网格动画');
         previousFrame=0;
       }
       $('#motion-toggle').addEventListener('click',()=>{manuallyPaused=!manuallyPaused;try{localStorage.setItem('lizheng-portfolio-motion',manuallyPaused?'paused':'playing');}catch(_){}syncMotion();});
-      $('#equalizer-toggle').addEventListener('click',()=>{equalizerPaused=!equalizerPaused;syncMotion();});
+      const backgroundMusic = $('#background-music');
+      backgroundMusic.volume = .2;
+      function syncMusic() {
+        const playing = !backgroundMusic.paused && !backgroundMusic.ended && !backgroundMusic.error;
+        const button = $('#equalizer-toggle');
+        $('#sound-tile').classList.toggle('is-paused', !playing);
+        button.innerHTML = playing ? pauseIcon : playIcon;
+        button.setAttribute('aria-pressed', String(playing));
+        button.setAttribute('aria-label', playing ? '暂停背景音乐' : '播放背景音乐');
+        $('#music-status').textContent = backgroundMusic.error ? '暂时无法播放 · 点击重试' : playing ? '正在播放 · 循环配乐' : backgroundMusic.currentTime > 0 ? '已暂停 · 点击继续' : '点击播放 · 循环配乐';
+      }
+      ['play', 'pause', 'ended', 'error', 'emptied'].forEach(event => backgroundMusic.addEventListener(event, syncMusic));
+      $('#equalizer-toggle').addEventListener('click', async () => {
+        if (!backgroundMusic.paused && !backgroundMusic.error) { backgroundMusic.pause(); return; }
+        try {
+          if (backgroundMusic.error) backgroundMusic.load();
+          await backgroundMusic.play();
+        } catch (error) {
+          if (error.name !== 'AbortError') notify('背景音乐暂时无法播放，请稍后重试。');
+          syncMusic();
+        }
+      });
+      $('#watch-film').addEventListener('click', () => backgroundMusic.pause());
+      window.addEventListener('pagehide', () => backgroundMusic.pause());
+      syncMusic();
       $('#mesh-toggle').addEventListener('click',()=>{meshPaused=!meshPaused;syncMotion();if(meshPaused)drawMesh(sceneTime);});
 
       // Beijing uses China Standard Time (UTC+8) throughout the year.
@@ -1286,7 +1306,7 @@
         }
         frameId=requestAnimationFrame(render);
       }
-      function visibilityChange(){syncMotion();if(document.hidden){cancelAnimationFrame(frameId);frameId=0;}else if(!frameId)frameId=requestAnimationFrame(render);}
+      function visibilityChange(){syncMotion();if(document.hidden){backgroundMusic.pause();cancelAnimationFrame(frameId);frameId=0;}else if(!frameId)frameId=requestAnimationFrame(render);}
       document.addEventListener('visibilitychange',visibilityChange);
       reduced.addEventListener('change',()=>{syncMotion();drawMesh(sceneTime);});
       syncMotion();updateClock(false);if(!document.hidden)frameId=requestAnimationFrame(render);

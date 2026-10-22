@@ -135,3 +135,10 @@ https://1drv.ms/v/c/d3cb7d8ff1af81cf/IQDkBnQF7jEYTLk7RF-ifKd-ARReO1qJkuZ52GEaYzA
 | 鹅鸭杀 | `assets/game-logos/goose.svg` | https://upload.wikimedia.org/wikipedia/zh/d/d9/Goose_goose_duck_cover.png | 原主视觉标题区域 |
 
 CS系列使用CS2标识，守望先锋使用现行标识；《黑暗之魂：重制版》使用原作系列字标，版本名称在游戏记录中单独保留。观赛信息显示2024 IEM成都与2026 EWC巴黎，主播为CSBOY与玩机器Machine。
+
+## 网站背景音乐
+
+- 素材：用户上传的`配乐.mp3`，保存为`assets/audio/background-music.mp3`，保留原始文件。
+- 首页“编辑室的节奏”卡片控制播放与暂停，点击后开始，默认音量20%，循环播放。
+- 点击完整作品观看链接、页面进入后台或离开页面时暂停；返回后由访客手动继续。
+- 使用站内相对路径与`preload="none"`，进入网页时不自动播放或预下载音频。
