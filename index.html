@@ -275,13 +275,41 @@
     @media(max-width:600px){.case-story.is-draft{grid-template-columns:1fr}.internship-tile h2{font-size:20px}.internship-tile h2 span{font-size:17px}.internship-state{left:18px;bottom:20px}.internship-tile .arrow{right:14px;bottom:19px}}
     .case-gallery.is-onsite:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}.case-gallery.is-onsite .gallery-heading{grid-column:1/-1;margin-bottom:0}.case-gallery.is-onsite .evidence-figure{margin:0}
     @media(max-width:600px){.case-gallery.is-onsite:not([hidden]){grid-template-columns:1fr;gap:14px}}
+
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+    .gaming-section{margin-top:72px;padding-bottom:18px;scroll-margin-top:28px}
+    .gaming-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:0 3px 25px}
+    .gaming-heading h2{font-size:36px;font-weight:550;letter-spacing:-1.6px;margin:10px 0 0;line-height:1.3}
+    .gaming-heading>p{font-size:11px;color:var(--muted);line-height:1.9;margin:0}
+    .gaming-columns{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:20px;align-items:start}
+    .gaming-card{padding:29px;border:1px solid #e5e7df;border-radius:24px;min-width:0}
+    .gaming-play{background:#eef0e9}.gaming-watch{background:#fff;border-color:#e9e9ed}
+    .gaming-card-top{display:flex;align-items:center;justify-content:space-between;gap:15px;color:#7e8473}
+    .gaming-watch .gaming-card-top{color:#87849a}
+    .gaming-card h3{font-size:27px;letter-spacing:-.8px;font-weight:550;line-height:1.3;margin:20px 0 10px}
+    .gaming-card-intro{font-size:11px;line-height:1.9;color:#7c8075;margin:0}
+    .gaming-watch .gaming-card-intro{color:#818189}
+    .gaming-table{width:100%;table-layout:fixed;border-collapse:collapse;margin-top:27px;font-size:11px}
+    .gaming-table th{padding:12px 5px;border-top:1px solid #dce0d3;border-bottom:1px solid #dce0d3;color:#6c7461;font-size:10px;font-weight:500;text-align:left;line-height:1.7;overflow-wrap:anywhere}
+    .gaming-table td{padding:14px 5px;border-bottom:1px solid #dce0d3;line-height:1.9;overflow-wrap:anywhere;vertical-align:top}
+    .gaming-table .gaming-empty{padding:35px 12px 30px;text-align:center;border-bottom:0;color:#8b9280}
+    .gaming-watch-groups{margin-top:27px;border-top:1px solid #e9e9ed}
+    .gaming-watch-group{padding:19px 0;border-bottom:1px solid #e9e9ed}.gaming-watch-group:last-child{padding-bottom:0;border-bottom:0}
+    .gaming-watch-group h4{font-size:12px;font-weight:550;margin:0;color:#50505a;line-height:1.7}
+    .gaming-group-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .gaming-group-heading>span{font-size:9px;color:#95959d;line-height:1.8}
+    .gaming-record-list{list-style:none;margin:10px 0 0;padding:0;font-size:11px;line-height:1.9;color:#73737d}
+    .gaming-record-list li+li{margin-top:9px}.gaming-pending{color:#9a9aa3}
+    @media(max-width:950px){.gaming-section{margin-top:49px}.gaming-heading h2{font-size:30px}.gaming-columns{gap:14px}.gaming-card{padding:24px}.gaming-card h3{font-size:24px}}
+    @media(max-width:700px){.gaming-columns{grid-template-columns:1fr}.gaming-heading{display:block}.gaming-heading>p{margin-top:12px}}
+    @media(max-width:600px){.site-header{flex-wrap:wrap;gap:15px}.wordmark{white-space:nowrap}.nav{width:100%;justify-content:space-between;gap:12px}.gaming-section{margin-top:42px}.gaming-heading{margin-bottom:21px}.gaming-heading h2{font-size:29px}.gaming-card{padding:24px 22px}.gaming-card h3{font-size:25px}.gaming-table th{font-size:9px}.gaming-card-intro{font-size:10px}}
   </style>
 </head>
 <body>
   <a class="skip" href="#work">Skip to portfolio</a>
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Li Zheng portfolio home"><span class="mark" aria-hidden="true">LZ</span> LI ZHENG<span class="muted" aria-hidden="true">.</span></a>
-    <nav class="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#project-archive" lang="zh-CN">项目档案</a><a href="#contact">Contact ↗</a><span class="hello"><i class="status-dot" aria-hidden="true"></i><span lang="zh-CN">让故事发生</span></span></nav>
+    <nav class="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#project-archive" lang="zh-CN">项目档案</a><a href="#gaming" lang="zh-CN">游戏电竞</a><a href="#contact">Contact ↗</a><span class="hello"><i class="status-dot" aria-hidden="true"></i><span lang="zh-CN">让故事发生</span></span></nav>
   </header>
   <main id="top" lang="zh-CN">
     <div class="page-kicker"><span>Content · Culture · Connection</span><span>一份关于叙事与现场的作品集</span></div>
@@ -334,6 +362,35 @@
       <article class="tile mesh-tile"><canvas id="mesh" aria-hidden="true"></canvas><div class="tile-content"><span class="eyebrow">A little room to explore</span><div class="mesh-bottom"><p>Keep<br>connecting.</p><span>GENERATIVE STUDY · 001</span></div></div><button type="button" class="round-control" id="mesh-toggle" aria-label="暂停渐变网格动画" aria-pressed="false"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h3v10H2zm5 0h3v10H7z"/></svg></button></article>
     </div>
 <section class="archive" id="project-archive" aria-labelledby="archive-title"><div class="archive-heading"><div><span class="eyebrow muted">Behind the stories / Project archive</span><h2 id="archive-title">作品与项目实践。</h2></div><p>综艺品牌合作、节目制作与文化活动。<br>记录从策划、执行到交付的项目实践。</p></div><section class="served-brands" aria-labelledby="served-brands-title"><div class="brand-heading"><h3 id="served-brands-title">服务过的品牌</h3><p>综艺商业内容、品牌合作与节目现场制作。</p></div><ul class="brand-list"><li class="brand-item" data-brand="satine"><img data-asset="logo-satine" alt="金典 logo" loading="lazy" decoding="async"><span class="brand-name">金典</span></li><li class="brand-item" data-brand="meituan"><img data-asset="logo-meituan" alt="美团 logo" loading="lazy" decoding="async"><span class="brand-name">美团</span></li><li class="brand-item" data-brand="samsung"><img data-asset="logo-samsung" alt="三星 logo" loading="lazy" decoding="async"><span class="brand-name">三星</span></li><li class="brand-item" data-brand="dove"><img data-asset="logo-dove" alt="德芙 logo" loading="lazy" decoding="async"><span class="brand-name">德芙</span></li><li class="brand-item" data-brand="oreo"><img data-asset="logo-oreo" alt="奥利奥 logo" loading="lazy" decoding="async"><span class="brand-name">奥利奥</span></li><li class="brand-item" data-brand="nouriz"><img data-asset="logo-nouriz" alt="纽瑞滋 logo" loading="lazy" decoding="async"><span class="brand-name">纽瑞滋</span></li><li class="brand-item" data-brand="vipshop"><img data-asset="logo-vipshop" alt="唯品会 logo" loading="lazy" decoding="async"><span class="brand-name">唯品会</span></li><li class="brand-item" data-brand="yipai"><img data-asset="logo-yipai" alt="你拍一 logo" loading="lazy" decoding="async"><span class="brand-name">你拍一</span></li><li class="brand-item" data-brand="soul"><img data-asset="logo-soul" alt="Soul 现行品牌logo" loading="lazy" decoding="async"><span class="brand-name">Soul</span></li><li class="brand-item" data-brand="tuborg"><img data-asset="logo-tuborg" alt="乐堡啤酒 logo" loading="lazy" decoding="async"><span class="brand-name">乐堡啤酒</span></li><li class="brand-item" data-brand="doubendou"><img data-asset="logo-doubendou" alt="豆本豆 logo" loading="lazy" decoding="async"><span class="brand-name">豆本豆</span></li><li class="brand-item" data-brand="snowsky"><img data-asset="logo-snowsky" alt="雪天盐 logo" loading="lazy" decoding="async"><span class="brand-name">雪天盐</span></li><li class="brand-item" data-brand="leekumkee"><img data-asset="logo-leekumkee" alt="李锦记 logo" loading="lazy" decoding="async"><span class="brand-name">李锦记</span></li><li class="brand-item" data-brand="sevennights"><img data-asset="logo-sevennights" alt="sevennights logo" loading="lazy" decoding="async"><span class="brand-name">sevennights</span></li></ul></section><div class="archive-grid"><article class="tile archive-card "><div class="archive-art"><img data-asset="yp-22" alt="你拍一 × 妻子的浪漫旅行5节目画面" width="1200" height="675" decoding="async"><span class="archive-label">BRAND INTEGRATION / 01</span></div><div class="archive-copy"><div class="archive-brand"><img data-asset="logo-yipai" alt="你拍一 logo" loading="lazy" decoding="async"><span>你拍一</span></div><h3>妻子的浪漫旅行5</h3><p>从亲子话题到产品体验，把品牌放进嘉宾的生活语境。</p><span class="arrow" aria-hidden="true">↗</span><div class="archive-metric"><strong>6类</strong><span>品牌合作资源类型</span></div></div><button type="button" class="tile-action" data-case="yipai" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看你拍一 × 妻子的浪漫旅行5案例与项目影像"></button></article><article class="tile archive-card "><div class="archive-art"><img data-asset="nr-25" alt="纽瑞滋 × 妻子的浪漫旅行5节目画面" width="1200" height="675" decoding="async"><span class="archive-label">BRAND INTEGRATION / 02</span></div><div class="archive-copy"><div class="archive-brand"><img data-asset="logo-nouriz" alt="纽瑞滋 logo" loading="lazy" decoding="async"><span>纽瑞滋</span></div><h3>妻子的浪漫旅行5</h3><p>以育儿交流组织内容，用多种触点承接品牌识别。</p><span class="arrow" aria-hidden="true">↗</span><div class="archive-metric"><strong>87.65%</strong><span>节目女性受众</span></div></div><button type="button" class="tile-action" data-case="nuriz" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看纽瑞滋 × 妻子的浪漫旅行5案例与项目影像"></button></article><article class="tile archive-card "><div class="archive-art"><img data-asset="gold-onsite" alt="小芒种花夜舞台现场与制作团队合影" width="1200" height="675" decoding="async"><span class="archive-label">LIVE CONTENT / 03</span></div><div class="archive-copy"><div class="archive-brand"><img data-asset="logo-satine" alt="金典 logo" loading="lazy" decoding="async"><span>金典</span></div><h3>小芒种花夜</h3><p>口播、观众互动与站内资源，构成一场直播的品牌交付。</p><span class="arrow" aria-hidden="true">↗</span><div class="archive-metric"><strong>1620秒</strong><span>品牌露出总时长</span></div></div><button type="button" class="tile-action" data-case="gold" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看金典 × 小芒种花夜案例与项目影像"></button></article><article class="tile archive-card rap-card"><div class="archive-art"><img data-asset="rap-onsite" alt="节目舞台现场与制作团队合影" width="1200" height="675" decoding="async"><span class="archive-label">SET & PROPS / 04</span></div><div class="archive-copy"><h3>说唱听我的</h3><p>从道具创意到搭建布置，把制作需求推进到录制现场。</p><span class="arrow" aria-hidden="true">↗</span><div class="archive-metric"><strong>置景 / 道具</strong><span>置景、道具执行导演</span></div></div><button type="button" class="tile-action" data-case="rap" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看说唱听我的案例与项目影像"></button></article></div><section class="onset-section" aria-labelledby="onset-title"><div class="onset-heading"><span class="eyebrow muted">Behind the scenes / On set</span><h3 id="onset-title">从内容，到现场。</h3><p>《小芒种花夜》与《说唱听我的》的制作现场。</p></div><div class="onset-grid"><figure class="onset-figure"><img data-asset="gold-onsite" alt="小芒种花夜舞台上，制作团队在大型布景前合影" width="2275" height="1279" loading="lazy" decoding="async"><figcaption><span>01 / 小芒种花夜</span><strong>舞台背后的协作。</strong><p>舞台布景与制作团队现场合影。</p></figcaption></figure><figure class="onset-figure"><img data-asset="rap-onsite" alt="节目制作团队在蓝色舞台灯光下合影" width="1920" height="1280" loading="lazy" decoding="async"><figcaption><span>02 / 节目制作现场</span><strong>让每个环节，落在现场。</strong><p>节目舞台与制作团队现场合影。</p></figcaption></figure></div></section><section class="culture-section" aria-labelledby="culture-title"><div class="onset-heading culture-heading"><div><span class="eyebrow muted">Culture & community / Glasgow CSSA</span><h3 id="culture-title">学联与文化交流。</h3><p>从主题展位到节庆现场，与不同文化背景的人相遇。</p></div><button type="button" class="tile culture-open" data-case="culture" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看全部5张学联活动现场照片">查看全部现场照片 <span aria-hidden="true">↗</span></button></div><div class="onset-grid"><figure class="onset-figure culture-photo-card"><img data-asset="culture-festival-1" alt="国际文化节：潍坊风筝展位介绍与交流。" width="2113" height="1279" loading="lazy" decoding="async"><figcaption><span>01 / CULTURAL EVENTS</span><strong>国际文化节</strong><p>潍坊风筝展位介绍与交流。</p></figcaption></figure><figure class="onset-figure culture-photo-card"><img data-asset="culture-gala" alt="苏格兰春晚：舞台与活动参与团队合影。" width="1920" height="1280" loading="lazy" decoding="async"><figcaption><span>02 / CULTURAL EVENTS</span><strong>苏格兰春晚</strong><p>舞台与活动参与团队合影。</p></figcaption></figure><figure class="onset-figure culture-photo-card"><img data-asset="culture-newyear" alt="新春游园会：2026格拉斯哥新春游园会现场。" width="1920" height="1280" loading="lazy" decoding="async"><figcaption><span>03 / CULTURAL EVENTS</span><strong>新春游园会</strong><p>2026格拉斯哥新春游园会现场。</p></figcaption></figure><figure class="onset-figure culture-photo-card"><img data-asset="culture-tea" alt="国际茶会：5·21国际茶会英国格拉斯哥分会场。" width="2631" height="1279" loading="lazy" decoding="async"><figcaption><span>04 / CULTURAL EVENTS</span><strong>国际茶会</strong><p>5·21国际茶会英国格拉斯哥分会场。</p></figcaption></figure></div></section></section>
+    <section class="gaming-section" id="gaming" aria-labelledby="gaming-title" lang="zh-CN">
+      <div class="gaming-heading">
+        <div><span class="eyebrow muted">Off duty / Games &amp; esports</span><h2 id="gaming-title">游戏与电竞。</h2></div>
+        <p>游戏经历、个人成就与观赛记录。</p>
+      </div>
+      <div class="gaming-columns">
+        <section class="gaming-card gaming-play" aria-labelledby="gaming-play-title">
+          <div class="gaming-card-top"><span class="eyebrow">01 / Play log</span></div>
+          <h3 id="gaming-play-title">游戏经历</h3>
+          <p class="gaming-card-intro">常玩的游戏、投入的时间，以及游戏中的成就。</p>
+          <table class="gaming-table">
+            <caption class="sr-only">个人游戏记录</caption>
+            <colgroup><col style="width:28%"><col style="width:20%"><col style="width:22%"><col style="width:30%"></colgroup>
+            <thead><tr><th scope="col">游戏</th><th scope="col">品类</th><th scope="col">游戏时长</th><th scope="col">段位 / 成就</th></tr></thead>
+            <tbody id="gaming-games"><tr><td class="gaming-empty" colspan="4"><span>游戏记录待补充</span></td></tr></tbody>
+          </table>
+        </section>
+        <section class="gaming-card gaming-watch" aria-labelledby="gaming-watch-title">
+          <div class="gaming-card-top"><span class="eyebrow">02 / Esports &amp; live</span></div>
+          <h3 id="gaming-watch-title">电竞关注与现场</h3>
+          <p class="gaming-card-intro">关注的赛事、主播，以及亲临现场的比赛。</p>
+          <div class="gaming-watch-groups">
+            <section class="gaming-watch-group" aria-labelledby="gaming-tournaments-title"><h4 id="gaming-tournaments-title">关注的赛事</h4><ul class="gaming-record-list" id="gaming-tournaments"><li class="gaming-pending">待补充</li></ul></section>
+            <section class="gaming-watch-group" aria-labelledby="gaming-streamers-title"><h4 id="gaming-streamers-title">关注的主播</h4><ul class="gaming-record-list" id="gaming-streamers"><li class="gaming-pending">待补充</li></ul></section>
+            <section class="gaming-watch-group" aria-labelledby="gaming-live-title"><div class="gaming-group-heading"><h4 id="gaming-live-title">线下观赛</h4><span>比赛 · 时间 · 地点</span></div><ul class="gaming-record-list" id="gaming-live-events"><li class="gaming-pending">待补充</li></ul></section>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
   <footer class="footer" lang="zh-CN"><p>李政 Li Zheng · 内容与文化作品集</p><p class="footer-note">品牌内容执行 · 新闻短片制作 · 文化活动策划</p><button type="button" id="motion-toggle" aria-pressed="false">暂停动态 ⏸</button></footer>
   <dialog class="case-overlay" id="case-overlay" aria-labelledby="case-title" lang="zh-CN">
