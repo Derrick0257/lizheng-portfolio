@@ -105,7 +105,7 @@ https://1drv.ms/v/c/d3cb7d8ff1af81cf/IQDkBnQF7jEYTLk7RF-ifKd-ARReO1qJkuZ52GEaYzA
 
 ## 游戏与电竞标识
 
-21款游戏的名称、时长、段位、全成就信息、Steam库存200+、主播关注与两次线下观赛记录，来自用户本次提供的信息。没有汇总为未经确认的总游玩时长，也没有为2026 EWC补写用户未提供的城市或场馆。
+22款游戏的名称、时长、段位、全成就信息、Steam库存200+、主播关注与两次线下观赛记录，来自用户本次提供的信息。本次更新按用户补充，将《黑神话：悟空》调整为78小时，新增《明末：渊虚之羽》44小时，并将2026 EWC观赛地点填写为巴黎。没有汇总为未经确认的总游玩时长。
 
 游戏标识保存于`assets/game-logos/`，使用站内相对路径及懒加载，不依赖访客访问第三方图片站。独立标识直接保存原始字节；主视觉中的标题标识使用SVG视窗展示原始图片对应区域，没有重绘或改写字形。
 
@@ -126,6 +126,7 @@ https://1drv.ms/v/c/d3cb7d8ff1af81cf/IQDkBnQF7jEYTLk7RF-ifKd-ARReO1qJkuZ52GEaYzA
 | 古剑奇谭3 | `assets/game-logos/gujian.svg` | https://upload.wikimedia.org/wikipedia/en/8/8e/Gujian3_game.jpg | 原主视觉标题区域 |
 | 赛博朋克2077 | `assets/game-logos/cyberpunk.svg` | https://upload.wikimedia.org/wikipedia/commons/e/e6/Cyberpunk_2077_logo.svg | 原始标识文件 |
 | 黑神话：悟空 | `assets/game-logos/wukong.png` | https://upload.wikimedia.org/wikipedia/commons/7/7d/Black_Myth_Wukong_international_black_logo.png | 原始标识文件 |
+| 明末：渊虚之羽 | `assets/game-logos/wuchang.svg` | https://upload.wikimedia.org/wikipedia/en/c/c4/Wuchang_Fallen_Feathers_cover_art.jpg | 原主视觉标题区域 |
 | 死亡搁浅：导剪版 | `assets/game-logos/death-stranding.svg` | https://upload.wikimedia.org/wikipedia/commons/0/03/Death_Stranding_2019_vector_logo.svg | 原始标识文件 |
 | 死亡搁浅2：冥滩之上 | `assets/game-logos/death-stranding-2.svg` | https://upload.wikimedia.org/wikipedia/commons/5/5c/Death_Stranding_2_On_the_Beach_2024_vector_logo.svg | 原始标识文件 |
 | 生化危机4：重制版 | `assets/game-logos/resident-evil.svg` | https://upload.wikimedia.org/wikipedia/commons/2/21/Resident_Evil_4_logo_%282023%29.svg | 原始标识文件 |
@@ -133,4 +134,4 @@ https://1drv.ms/v/c/d3cb7d8ff1af81cf/IQDkBnQF7jEYTLk7RF-ifKd-ARReO1qJkuZ52GEaYzA
 | 帝国时代2：决定版 | `assets/game-logos/aoe.svg` | https://upload.wikimedia.org/wikipedia/commons/0/0d/Logo_Age_of_Empires_II_Definitive_Edition.png | 原主视觉标题区域 |
 | 鹅鸭杀 | `assets/game-logos/goose.svg` | https://upload.wikimedia.org/wikipedia/zh/d/d9/Goose_goose_duck_cover.png | 原主视觉标题区域 |
 
-CS系列使用CS2标识，守望先锋使用现行标识；《黑暗之魂：重制版》使用原作系列字标，版本名称在游戏记录中单独保留。观赛信息显示2024 IEM成都与2026 EWC，主播为CSBOY与玩机器Machine。
+CS系列使用CS2标识，守望先锋使用现行标识；《黑暗之魂：重制版》使用原作系列字标，版本名称在游戏记录中单独保留。观赛信息显示2024 IEM成都与2026 EWC巴黎，主播为CSBOY与玩机器Machine。
