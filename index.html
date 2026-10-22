@@ -269,6 +269,8 @@
 
     .internship-tile h2{font-size:22px;font-weight:550;letter-spacing:-.8px;line-height:1.3;margin:16px 0 0}.internship-tile h2 span{font-size:18px}.internship-note{font-size:10px;color:#72796b;margin:8px 0 0}.internship-state{position:absolute;left:22px;bottom:22px;padding:5px 9px;border:1px solid #cbd1c0;border-radius:30px;font-size:9px;color:#737c68}.internship-tile .arrow{position:absolute;right:15px;bottom:21px;width:27px;height:27px;font-size:15px;background:#dfe4d6}
     .case-hero.is-internship h2{font-size:clamp(24px,7vw,56px)}
+    .case-project-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;list-style:none;margin:0;padding:0}.case-project-list li{font-size:13px;line-height:2;color:#6b6b73}
+    @media(max-width:600px){.case-project-list{grid-template-columns:1fr}.case-project-list li{font-size:12px}}
     .case-story.is-draft{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.case-story.is-draft section{display:block;min-height:145px;padding:22px;border:1px dashed #cfd2c7;border-radius:17px;background:#f9faf7}.case-story.is-draft p{color:#8b9082;margin-top:16px}.case-story.is-draft .case-divider{display:none}
     @media(max-width:600px){.case-story.is-draft{grid-template-columns:1fr}.internship-tile h2{font-size:20px}.internship-tile h2 span{font-size:17px}.internship-state{left:18px;bottom:20px}.internship-tile .arrow{right:14px;bottom:19px}}
   </style>
@@ -321,7 +323,7 @@
       <article class="tile brand-tile" id="brand-project">
         <div class="tile-content"><span class="eyebrow muted">Brand × entertainment / 02</span><h2>让品牌诉求，<br>进入节目叙事。</h2><p class="brand-caption">4个项目档案 · 内容执行与节目制作</p><span class="arrow" aria-hidden="true">↗</span><span class="mini-clapper" aria-hidden="true"></span></div><button type="button" class="tile-action" data-case="brand" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看综艺商业内容执行案例"></button>
       </article>
-      <article class="tile internship-tile"><div class="tile-content"><span class="eyebrow muted">TV Production</span><h2>湖南卫视<br><span>制片实习</span></h2><p class="internship-note">经历档案</p><span class="internship-state">待补充</span><span class="arrow" aria-hidden="true">↗</span></div><button type="button" class="tile-action" data-case="internship" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看湖南卫视制片实习经历"></button></article>
+      <article class="tile internship-tile"><div class="tile-content"><span class="eyebrow muted">TV Production</span><h2>湖南卫视<br><span>制片实习</span></h2><p class="internship-note">2018.07—2019.05</p><span class="internship-state">制片实习生</span><span class="arrow" aria-hidden="true">↗</span></div><button type="button" class="tile-action" data-case="internship" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看湖南卫视制片实习经历"></button></article>
       <article class="tile location-tile"><img class="culture-cover" data-asset="culture-festival-1" alt="国际文化节潍坊风筝展位交流现场" width="2113" height="1279" loading="lazy" decoding="async"><div class="tile-content"><span class="eyebrow">Culture & community</span></div><div class="location-caption"><h2>Glasgow, UK.</h2><p>学联活动 · 现场记录 ↗</p><span class="hover-detail">查看四类活动现场 ↗</span></div><button type="button" class="tile-action" data-case="culture" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看国际文化节、苏格兰春晚、新春游园会及国际茶会照片"></button></article>
       <article class="tile tools-tile"><div class="tile-content"><span class="eyebrow muted">Tools of the trade</span><div class="tool-field"><span class="tool-chip"><span class="tool-icon">Pr</span>Premiere Pro</span><span class="tool-chip"><span class="tool-icon">✂</span>剪映</span><span class="tool-chip"><span class="tool-icon">✳</span>ChatGPT</span></div><span class="hover-detail">剪辑 · 字幕 · 创意辅助</span></div></article>
       <article class="tile method-tile"><div class="tile-content"><span class="eyebrow muted">From idea to pitch / 03</span><img class="pitch-preview" data-asset="pitch-1" alt="芒芒剧综厅创意提案封面" width="1600" height="900" loading="lazy" decoding="async"><h2>芒芒剧综厅。<br><span>一起看，也一起聊。</span></h2><div class="method-bottom"><span class="avatar-monogram" aria-hidden="true">LZ</span><span>芒果青年说 · 团队初赛第1名 / 入围决赛</span></div><span class="arrow" style="position:absolute;right:24px;bottom:24px" aria-hidden="true">↗</span></div><button type="button" class="tile-action" data-case="pitch" aria-haspopup="dialog" aria-controls="case-overlay" aria-label="查看芒芒剧综厅创意提案案例"></button></article>
@@ -635,40 +637,71 @@
     "index": "PRODUCTION EXPERIENCE",
     "eyebrow": "HUNAN TV · PRODUCTION",
     "title": "湖南卫视制片实习。",
-    "deck": "实习信息、工作职责、项目实践与现场记录。",
+    "deck": "参与综艺节目与晚会制作，承担外拍统筹、场地与后勤协调，衔接棚内彩排及正式直播。",
     "meta": [
       [
         "单位 / ORGANIZATION",
-        "湖南卫视"
+        "湖南广播电视台卫视频道"
       ],
       [
         "岗位 / ROLE",
-        "制片实习"
+        "制片实习生"
       ],
       [
         "时间 / PERIOD",
-        "待补充"
+        "2018.07—2019.05"
+      ]
+    ],
+    "metrics": [
+      [
+        "12个",
+        "《快乐哆唻咪》拍摄地点",
+        "连续参与3个月外拍录制"
+      ],
+      [
+        "2个环节",
+        "《2019元宵喜乐会》外拍",
+        "约半个月 · 参与彩排至正式直播"
+      ],
+      [
+        "2所学校",
+        "《2019中国航天日文艺晚会》对接",
+        "1个环节 · 两地 · 约10天外拍"
       ]
     ],
     "sections": [
       [
-        "实习信息",
-        "待补充"
+        "快乐哆唻咪",
+        "连续参与3个月外拍录制，覆盖12个拍摄地点。承担商家对接、摄影棚管理、行程规划，以及食宿、用车和差旅安排，协调场地与后勤资源。"
       ],
       [
-        "工作职责",
-        "待补充"
+        "2019元宵喜乐会",
+        "跟进2个环节、约半个月的外拍工作，参与棚内彩排至正式直播全流程。对接导演组、场地方及艺人团队，衔接拍摄安排与现场需求。"
       ],
       [
-        "项目实践",
-        "待补充"
+        "2019中国航天日文艺晚会",
+        "跟进1个环节、两地、约10天的外拍工作，对接2所学校及导演组、场地方、合作方和艺人团队，参与棚内彩排与正式直播全流程。"
+      ],
+      [
+        "参与项目",
+        [
+          "《歌手2019》",
+          "《快乐大本营》",
+          "《声入人心》（样片）",
+          "《快乐哆唻咪》",
+          "《神奇的汉字》",
+          "《摇啊笑啊桥》",
+          "《七夕爱情歌会》",
+          "《2019元宵喜乐会》",
+          "《2019中国航天日文艺晚会》",
+          "芒果TV 2018芒果粉丝节"
+        ]
       ],
       [
         "现场记录",
         "待补充"
       ]
-    ],
-    "isDraft": true
+    ]
   }
 };
 
@@ -1095,7 +1128,17 @@
         const meta=$('#case-meta');meta.replaceChildren();
         for(const [label,value]of data.meta){const group=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;group.append(dt,dd);meta.append(group);}
         const story=$('#case-story');story.replaceChildren();story.classList.toggle('is-draft',Boolean(data.isDraft));
-        data.sections.forEach(([title,text],i)=>{const section=document.createElement('section'),h=document.createElement('h3'),num=document.createElement('span'),p=document.createElement('p');num.className='section-num';num.textContent=`0${i+1} /`;h.append(num,document.createTextNode(`【${title}】`));p.textContent=text;section.append(h,p);story.append(section);if(i<data.sections.length-1){const divider=document.createElement('div');divider.className='case-divider';divider.setAttribute('aria-hidden','true');story.append(divider);}});
+        data.sections.forEach(([title,text],i)=>{
+          const section=document.createElement('section'),h=document.createElement('h3'),num=document.createElement('span');
+          num.className='section-num';num.textContent=`0${i+1} /`;h.append(num,document.createTextNode(`【${title}】`));section.append(h);
+          if(Array.isArray(text)){
+            const list=document.createElement('ul');list.className='case-project-list';
+            for(const project of text){const item=document.createElement('li');item.textContent=project;list.append(item);}
+            section.append(list);
+          }else{const p=document.createElement('p');p.textContent=text;section.append(p);}
+          story.append(section);
+          if(i<data.sections.length-1){const divider=document.createElement('div');divider.className='case-divider';divider.setAttribute('aria-hidden','true');story.append(divider);}
+        });
 
         const metrics=$('#case-metrics');metrics.replaceChildren();metrics.hidden=!data.metrics;
         for(const [value,label,scope]of data.metrics||[]){const item=document.createElement('div');item.className='case-metric';const strong=document.createElement('strong'),span=document.createElement('span'),small=document.createElement('small');strong.textContent=value;span.textContent=label;small.textContent=scope;item.append(strong,span,small);metrics.append(item);}
