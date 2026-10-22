@@ -331,7 +331,7 @@
           <div class="sound-top"><span class="eyebrow">Studio rhythm</span><button type="button" class="round-control" id="equalizer-toggle" aria-label="播放背景音乐" aria-pressed="false" aria-controls="background-music" aria-describedby="music-status"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1l8 5-8 5z"/></svg></button></div>
           <div class="equalizer" aria-hidden="true"><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i></div>
           <p class="sound-title">编辑室的节奏</p><p class="sound-caption" id="music-status" role="status" aria-live="polite">点击播放 · 循环配乐</p>
-          <audio id="background-music" src="assets/audio/background-music.mp3" preload="none" loop hidden></audio>
+          <audio id="background-music" src="assets/audio/background-music.mp3" preload="auto" loop hidden></audio>
         </div>
       </article>
       <article class="tile film-tile" id="film-project">
@@ -1105,6 +1105,8 @@
       $('#motion-toggle').addEventListener('click',()=>{manuallyPaused=!manuallyPaused;try{localStorage.setItem('lizheng-portfolio-motion',manuallyPaused?'paused':'playing');}catch(_){}syncMotion();});
       const backgroundMusic = $('#background-music');
       backgroundMusic.volume = .2;
+      let musicAutostartPending = true;
+      let musicAwaitingInteraction = false;
       function syncMusic() {
         const playing = !backgroundMusic.paused && !backgroundMusic.ended && !backgroundMusic.error;
         const button = $('#equalizer-toggle');
@@ -1112,22 +1114,53 @@
         button.innerHTML = playing ? pauseIcon : playIcon;
         button.setAttribute('aria-pressed', String(playing));
         button.setAttribute('aria-label', playing ? '暂停背景音乐' : '播放背景音乐');
-        $('#music-status').textContent = backgroundMusic.error ? '暂时无法播放 · 点击重试' : playing ? '正在播放 · 循环配乐' : backgroundMusic.currentTime > 0 ? '已暂停 · 点击继续' : '点击播放 · 循环配乐';
+        $('#music-status').textContent = backgroundMusic.error ? '暂时无法播放 · 点击重试' : playing ? '正在播放 · 循环配乐' : musicAwaitingInteraction ? '点击页面 · 开启配乐' : backgroundMusic.currentTime > 0 ? '已暂停 · 点击继续' : '点击播放 · 循环配乐';
       }
-      ['play', 'pause', 'ended', 'error', 'emptied'].forEach(event => backgroundMusic.addEventListener(event, syncMusic));
-      $('#equalizer-toggle').addEventListener('click', async () => {
-        if (!backgroundMusic.paused && !backgroundMusic.error) { backgroundMusic.pause(); return; }
+      function cancelMusicAutostart() {
+        musicAutostartPending = false;
+        musicAwaitingInteraction = false;
+        document.removeEventListener('click', startMusicOnInteraction);
+        document.removeEventListener('keydown', startMusicOnInteraction);
+      }
+      async function playMusic(automatic = false) {
         try {
           if (backgroundMusic.error) backgroundMusic.load();
           await backgroundMusic.play();
+          cancelMusicAutostart();
         } catch (error) {
-          if (error.name !== 'AbortError') notify('背景音乐暂时无法播放，请稍后重试。');
-          syncMusic();
+          if (automatic && error.name === 'NotAllowedError' && musicAutostartPending) {
+            musicAwaitingInteraction = true;
+          } else {
+            cancelMusicAutostart();
+            if (!automatic && error.name !== 'AbortError') notify('背景音乐暂时无法播放，请稍后重试。');
+          }
         }
+        syncMusic();
+      }
+      function startMusicOnInteraction(event) {
+        if (!musicAutostartPending || !musicAwaitingInteraction || document.hidden) return;
+        if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') return;
+        if (event.target instanceof Element && event.target.closest('#equalizer-toggle, #watch-film')) return;
+        void playMusic(true);
+      }
+      function pauseBackgroundMusic() {
+        cancelMusicAutostart();
+        backgroundMusic.pause();
+        syncMusic();
+      }
+      ['play', 'pause', 'ended', 'error', 'emptied'].forEach(event => backgroundMusic.addEventListener(event, syncMusic));
+      $('#equalizer-toggle').addEventListener('click', () => {
+        cancelMusicAutostart();
+        if (!backgroundMusic.paused && !backgroundMusic.error) pauseBackgroundMusic();
+        else void playMusic();
       });
-      $('#watch-film').addEventListener('click', () => backgroundMusic.pause());
-      window.addEventListener('pagehide', () => backgroundMusic.pause());
+      document.addEventListener('click', startMusicOnInteraction);
+      document.addEventListener('keydown', startMusicOnInteraction);
+      $('#watch-film').addEventListener('click', pauseBackgroundMusic);
+      window.addEventListener('pagehide', pauseBackgroundMusic);
       syncMusic();
+      if (!document.hidden) void playMusic(true);
+      else cancelMusicAutostart();
       $('#mesh-toggle').addEventListener('click',()=>{meshPaused=!meshPaused;syncMotion();if(meshPaused)drawMesh(sceneTime);});
 
       // Beijing uses China Standard Time (UTC+8) throughout the year.
@@ -1306,7 +1339,7 @@
         }
         frameId=requestAnimationFrame(render);
       }
-      function visibilityChange(){syncMotion();if(document.hidden){backgroundMusic.pause();cancelAnimationFrame(frameId);frameId=0;}else if(!frameId)frameId=requestAnimationFrame(render);}
+      function visibilityChange(){syncMotion();if(document.hidden){pauseBackgroundMusic();cancelAnimationFrame(frameId);frameId=0;}else if(!frameId)frameId=requestAnimationFrame(render);}
       document.addEventListener('visibilitychange',visibilityChange);
       reduced.addEventListener('change',()=>{syncMotion();drawMesh(sceneTime);});
       syncMotion();updateClock(false);if(!document.hidden)frameId=requestAnimationFrame(render);
